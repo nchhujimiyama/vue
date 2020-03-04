@@ -109,7 +109,7 @@
             }
         </script> -->
 
-        <div id="app"><p :style="styles">{{message}}</p></div>
+        <!-- <div id="app"><p :style="styles">{{message}}</p></div>
         <script>
             var data = {
                 message: 'hello world',
@@ -126,6 +126,41 @@
                 el: '#app',
                 data: data
             })
+        </script> -->
+
+        <style>
+            .ok {
+                font-size: 24px;
+                color: blue;
+                padding: 5px 10px;
+                border: 2px solid red;
+            }
+            .ng {
+                font-size: 20px;
+                color: gray;
+            }
+        </style>
+        <div id="app">
+            <p v-if="flag" class="ok">
+                これは正常な表示です。
+            </p>
+            <p v-else class="ng">
+                ※現在、問題が発生中です。
+            </p>
+        </div>
+        <button onclick="doAction()">click</button>
+
+        <script>
+            var data = {
+                flag: true
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doAction() {
+                data.flag = !data.flag
+            }
         </script>
     </body>
 </html>
