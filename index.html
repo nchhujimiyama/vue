@@ -2,17 +2,129 @@
 <html>
     <head>
         <title>Vue app</title>
+        <meta charset="UTF-8">
         <script src="https://unpkg.com/vue"></script>
     </head>
     <body>
-        <h1>Vue.js</h1>
-        <div id="app">{{message}}</div>
+        <!-- <h1>Vue.js</h1>
+        <div id="app">{{ message }}</div>
+        <hr>
+        <button onclick="doAction();">click</button>
         <script>
+            var data = {
+                message: 'please type',
+                items: ['one', 'two', 'three', 'four', 'five']
+            }
             var app = new Vue({
                 el: '#app',
-                data: {
-                    message: 'Hello World'
+                data: data,
+                render: (el) => {
+                    return el("div", [
+                        el("p", {style: 'font-size: 20px;'}, data.message),
+                        el("ol", data.items.map(i => el('li', i)) )
+                    ])
                 }
+            })
+
+            function doAction() {
+                var newdata = ['いち', 'に', 'さん', 'よん', 'ご']
+                data.message = 'クリックしました'
+                data.items[0] = 'ぜろ'
+                for (n in data.items) {
+                    data.items[n] = newdata[n]
+                }
+            }
+        </script> -->
+
+        <!-- <div id="app">
+            <ol v-html="messages"></ol>
+        </div>
+        <hr>
+        <input type="text" onInput="doInput(event);">
+        <button onclick="doAction();">click</button>
+        <script>
+            var data = {
+                messages: '<li>hello vue</li>'
+            }
+            var app2 = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doInput(e) {
+                data.message = e.target.value;
+            }
+            function doAction() {
+                data.messages += '<li>' + data.message + '</li>'
+            }
+        </script> -->
+
+        <!-- <div id="app">
+            <p v-bind:style="style">{{message}}</p>
+        </div>
+        <hr>
+        <input type="number" onChange="doChange(event);" value="20">
+        <script>
+            var data = {
+                message: 'Hello world',
+                style: 'font-size: 20px; color: red;'
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doChange(e) {
+                data.style = 'font-size:' + e.target.value + 'px; color: red'
+            }
+        </script> -->
+
+        <!-- <style>
+            .red {
+                color: red;
+            }
+            .blue {
+                color: blue;
+            }
+        </style>
+        <div id="app">
+            <p :class="classes">{{ message }}</p>
+        </div>
+        <hr>
+        <button onclick="doAction();">click</button>
+        <script>
+            var classObj = {
+                red: true,
+                blue: false
+            }
+            var data = {
+                message: 'Hello world',
+                classes: classObj
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doAction() {
+                classObj.red = !classObj.red;
+                classObj.blue = !classObj.blue;
+            }
+        </script> -->
+
+        <div id="app"><p :style="styles">{{message}}</p></div>
+        <script>
+            var data = {
+                message: 'hello world',
+                styles: {
+                    margin: '10px',
+                    padding: '5px 20px',
+                    fontSize: '20px',
+                    color: 'red',
+                    backgroundColor: '#fee',
+                    border: '3px solid blue'
+                }
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
             })
         </script>
     </body>
