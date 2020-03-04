@@ -230,39 +230,83 @@
         </script> -->
 
 
-        <style>
-                table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
-                table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
-            </style>
-            <div id="app">
-                <p>※データをテーブルで表示する</p>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>mail</th>
-                        <th>tel</th>
-                    </tr>
-                    <tr v-for="(item, key) in items">
-                        <td>{{key}}</td>
-                        <td>{{item.mail}}</td>
-                        <td>{{item.tel}}</td>
-                    </tr>
-                </table>
-            </div>
-            <script>
-                var data = {
-                    items:{
-                        taro: {mail: 'taro@yamada', tel: '999-9999'},
-                        hanako: {mail: 'hanako@flower', tel: '888-8888'},
-                        sachiko: {mail: 'sachiko@happy', tel: '777-7777'},
-                        jiro: {mail: 'jiro@change', tel: '666-6666'},
-                        mami: {mail: 'mami@mumemo', tel: '555-5555'},
-                    }
+        <!-- <style>
+            table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
+        </style>
+        <div id="app">
+            <p>※データをテーブルで表示する</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>mail</th>
+                    <th>tel</th>
+                </tr>
+                <tr v-for="(item, key) in items">
+                    <td>{{key}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var data = {
+                items:{
+                    taro: {mail: 'taro@yamada', tel: '999-9999'},
+                    hanako: {mail: 'hanako@flower', tel: '888-8888'},
+                    sachiko: {mail: 'sachiko@happy', tel: '777-7777'},
+                    jiro: {mail: 'jiro@change', tel: '666-6666'},
+                    mami: {mail: 'mami@mumemo', tel: '555-5555'},
                 }
-                var app = new Vue({
-                    el: '#app',
-                    data: data
-                })
-            </script>
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+        </script> -->
+
+
+        <style>
+            table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
+        </style>
+        <div id="app">
+            <p>※データをテーブルで表示する</p>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>mail</th>
+                    <th>tel</th>
+                </tr>
+                <tr v-for="(item, index) in items" v-if="index % 2 == 0">
+                    <td>{{index}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+                <tr v-else>
+                    <td>***</td>
+                    <td>***非公開***</td>
+                    <td>***非公開***</td>
+                    <td>***非公開***</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var data = {
+                items:[
+                    {name: 'taro', mail: 'taro@yamada', tel: '999-9999'},
+                    {name: 'hanako', mail: 'hanako@flower', tel: '888-8888'},
+                    {name: 'sachiko', mail: 'sachiko@happy', tel: '777-7777'},
+                    {name: 'jiro', mail: 'jiro@change', tel: '666-6666'},
+                    {name: 'mami', mail: 'mami@mumemo', tel: '555-5555'},
+                ]
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+        </script>
     </body>
 </html>
