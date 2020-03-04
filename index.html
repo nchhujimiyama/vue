@@ -78,12 +78,8 @@
         </script> -->
 
         <!-- <style>
-            .red {
-                color: red;
-            }
-            .blue {
-                color: blue;
-            }
+            .red { color: red; }
+            .blue { color: blue; }
         </style>
         <div id="app">
             <p :class="classes">{{ message }}</p>
@@ -129,16 +125,8 @@
         </script> -->
 
         <!-- <style>
-            .ok {
-                font-size: 24px;
-                color: blue;
-                padding: 5px 10px;
-                border: 2px solid red;
-            }
-            .ng {
-                font-size: 20px;
-                color: gray;
-            }
+            .ok { font-size: 24px; color: blue; padding: 5px 10px; border: 2px solid red; }
+            .ng { font-size: 20px; color: gray; }
         </style>
         <div id="app">
             <p v-if="flag" class="ok">
@@ -164,22 +152,10 @@
         </script> -->
 
 
-        <style>
-            table tr th {
-                font-size: 16px;
-                color: white;
-                background-color: blue;
-                padding: 5px 15px;
-            }
-            table tr td {
-                font-size: 16px;
-                color: gray;
-                border: 1px solid gray;
-            }
-            li {
-                font-size: 16px;
-                color: gray;
-            }
+        <!-- <style>
+            table tr th { font-size: 16px; color: white; background-color: blue; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: gray; border: 1px solid gray; }
+            li { font-size: 16px; color: gray; }
         </style>
         <div id="app">
             <template v-if="flag">
@@ -213,6 +189,42 @@
             function doAction() {
                 data.flag = !data.flag
             }
+        </script> -->
+
+
+        <style>
+            table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
+        </style>
+        <div id="app">
+            <p>※データをテーブルで表示する</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>mail</th>
+                    <th>tel</th>
+                </tr>
+                <tr v-for="item in items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var data = {
+                items:[
+                    {name: 'taro', mail: 'taro@yamada', tel: '999-9999'},
+                    {name: 'hanako', mail: 'hanako@flower', tel: '888-8888'},
+                    {name: 'sachiko', mail: 'sachiko@happy', tel: '777-7777'},
+                    {name: 'jiro', mail: 'jiro@change', tel: '666-6666'},
+                    {name: 'mami', mail: 'mami@mumemo', tel: '555-5555'},
+                ]
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
         </script>
     </body>
 </html>
