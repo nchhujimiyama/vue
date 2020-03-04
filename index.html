@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue app</title>
+        <meta charset="UTF-8">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <!-- <h1>Vue.js</h1>
+        <div id="app">{{ message }}</div>
+        <hr>
+        <button onclick="doAction();">click</button>
+        <script>
+            var data = {
+                message: 'please type',
+                items: ['one', 'two', 'three', 'four', 'five']
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data,
+                render: (el) => {
+                    return el("div", [
+                        el("p", {style: 'font-size: 20px;'}, data.message),
+                        el("ol", data.items.map(i => el('li', i)) )
+                    ])
+                }
+            })
+
+            function doAction() {
+                var newdata = ['いち', 'に', 'さん', 'よん', 'ご']
+                data.message = 'クリックしました'
+                data.items[0] = 'ぜろ'
+                for (n in data.items) {
+                    data.items[n] = newdata[n]
+                }
+            }
+        </script> -->
+
+        <!-- <div id="app">
+            <ol v-html="messages"></ol>
+        </div>
+        <hr>
+        <input type="text" onInput="doInput(event);">
+        <button onclick="doAction();">click</button>
+        <script>
+            var data = {
+                messages: '<li>hello vue</li>'
+            }
+            var app2 = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doInput(e) {
+                data.message = e.target.value;
+            }
+            function doAction() {
+                data.messages += '<li>' + data.message + '</li>'
+            }
+        </script> -->
+
+        <!-- <div id="app">
+            <p v-bind:style="style">{{message}}</p>
+        </div>
+        <hr>
+        <input type="number" onChange="doChange(event);" value="20">
+        <script>
+            var data = {
+                message: 'Hello world',
+                style: 'font-size: 20px; color: red;'
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doChange(e) {
+                data.style = 'font-size:' + e.target.value + 'px; color: red'
+            }
+        </script> -->
+
+        <!-- <style>
+            .red { color: red; }
+            .blue { color: blue; }
+        </style>
+        <div id="app">
+            <p :class="classes">{{ message }}</p>
+        </div>
+        <hr>
+        <button onclick="doAction();">click</button>
+        <script>
+            var classObj = {
+                red: true,
+                blue: false
+            }
+            var data = {
+                message: 'Hello world',
+                classes: classObj
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doAction() {
+                classObj.red = !classObj.red;
+                classObj.blue = !classObj.blue;
+            }
+        </script> -->
+
+        <!-- <div id="app"><p :style="styles">{{message}}</p></div>
+        <script>
+            var data = {
+                message: 'hello world',
+                styles: {
+                    margin: '10px',
+                    padding: '5px 20px',
+                    fontSize: '20px',
+                    color: 'red',
+                    backgroundColor: '#fee',
+                    border: '3px solid blue'
+                }
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+        </script> -->
+
+        <!-- <style>
+            .ok { font-size: 24px; color: blue; padding: 5px 10px; border: 2px solid red; }
+            .ng { font-size: 20px; color: gray; }
+        </style>
+        <div id="app">
+            <p v-if="flag" class="ok">
+                これは正常な表示です。
+            </p>
+            <p v-else class="ng">
+                ※現在、問題が発生中です。
+            </p>
+        </div>
+        <button onclick="doAction()">click</button>
+
+        <script>
+            var data = {
+                flag: true
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doAction() {
+                data.flag = !data.flag
+            }
+        </script> -->
+
+
+        <!-- <style>
+            table tr th { font-size: 16px; color: white; background-color: blue; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: gray; border: 1px solid gray; }
+            li { font-size: 16px; color: gray; }
+        </style>
+        <div id="app">
+            <template v-if="flag">
+                <p>※データをテーブルに表示する</p>
+                <table>
+                    <tr><th>Name</th><th>mail</th></tr>
+                    <tr><td>Taro</td><td>taro@yamada</td></tr>
+                    <tr><td>Hanako</td><td>hanako@flower</td></tr>
+                    <tr><td>Sachiko</td><td>sachiko@happy</td></tr>
+                </table>
+            </template>
+            <template v-else>
+                <p>※データをリスト表示する</p>
+                <ul>
+                    <li>Taroのメールアドレスは、taro@yamadaです。</li>
+                    <li>Hanakoのメールアドレスは、hanako@flowerです。</li>
+                    <li>Sachikoのメールアドレスは、sachiko@happyです。</li>
+                </ul>
+            </template>
+        </div>
+        <hr>
+        <button onclick="doAction();">click</button>
+        <script>
+            var data = {
+                flag: true
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+            function doAction() {
+                data.flag = !data.flag
+            }
+        </script> -->
+
+
+        <!-- <style>
+            table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
+        </style>
+        <div id="app">
+            <p>※データをテーブルで表示する</p>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>mail</th>
+                    <th>tel</th>
+                </tr>
+                <tr v-for="(item, id) in items">
+                    <td>{{id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var data = {
+                items:[
+                    {name: 'taro', mail: 'taro@yamada', tel: '999-9999'},
+                    {name: 'hanako', mail: 'hanako@flower', tel: '888-8888'},
+                    {name: 'sachiko', mail: 'sachiko@happy', tel: '777-7777'},
+                    {name: 'jiro', mail: 'jiro@change', tel: '666-6666'},
+                    {name: 'mami', mail: 'mami@mumemo', tel: '555-5555'},
+                ]
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+        </script> -->
+
+
+        <!-- <style>
+            table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
+        </style>
+        <div id="app">
+            <p>※データをテーブルで表示する</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>mail</th>
+                    <th>tel</th>
+                </tr>
+                <tr v-for="(item, key) in items">
+                    <td>{{key}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var data = {
+                items:{
+                    taro: {mail: 'taro@yamada', tel: '999-9999'},
+                    hanako: {mail: 'hanako@flower', tel: '888-8888'},
+                    sachiko: {mail: 'sachiko@happy', tel: '777-7777'},
+                    jiro: {mail: 'jiro@change', tel: '666-6666'},
+                    mami: {mail: 'mami@mumemo', tel: '555-5555'},
+                }
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+        </script> -->
+
+
+        <style>
+            table tr th { font-size: 16px; color: #fff; background: #00f; padding: 5px 15px; }
+            table tr td { font-size: 16px; color: #999; border: 1px solid #999; padding: 5px 15px; }
+        </style>
+        <div id="app">
+            <p>※データをテーブルで表示する</p>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>mail</th>
+                    <th>tel</th>
+                </tr>
+                <tr v-for="(item, index) in items" v-if="index % 2 == 0">
+                    <td>{{index}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+                <tr v-else>
+                    <td>***</td>
+                    <td>***非公開***</td>
+                    <td>***非公開***</td>
+                    <td>***非公開***</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var data = {
+                items:[
+                    {name: 'taro', mail: 'taro@yamada', tel: '999-9999'},
+                    {name: 'hanako', mail: 'hanako@flower', tel: '888-8888'},
+                    {name: 'sachiko', mail: 'sachiko@happy', tel: '777-7777'},
+                    {name: 'jiro', mail: 'jiro@change', tel: '666-6666'},
+                    {name: 'mami', mail: 'mami@mumemo', tel: '555-5555'},
+                ]
+            }
+            var app = new Vue({
+                el: '#app',
+                data: data
+            })
+        </script>
+    </body>
+</html>
